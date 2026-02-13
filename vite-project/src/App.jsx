@@ -1,6 +1,8 @@
 import img1 from "./assets/rasm1.png"
 import img2 from "./assets/image2.png"
 import img3 from "./assets/image3.png"
+import './index.css';  // ✅ BU QATOR BO'LISHI KERAK!
+
 
 import React, { useState, useEffect } from 'react';
 import { 
@@ -270,7 +272,6 @@ const Projects = () => {
   );
 };
 
-
 const Contact = () => {
   const [isSending, setIsSending] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
@@ -416,6 +417,139 @@ const Contact = () => {
 };
 
 
+
+const Certificates = () => {
+  const certificates = [
+    {
+      id: 1,
+      name: "Frontend React.js",
+      school: "Najot Ta'lim",
+      date: "2024",
+      credential: "NT-2024-001",
+      image: "https://via.placeholder.com/300x200", // Sertifikat rasmi
+      link: "https://example.com/certificate1"
+    },
+    {
+      id: 2,
+      name: "JavaScript Professional",
+      school: "Coursera",
+      date: "2023",
+      credential: "CR-2023-456",
+      image: "https://via.placeholder.com/300x200",
+      link: "https://example.com/certificate2"
+    },
+    {
+      id: 3,
+      name: "UI/UX Design",
+      school: "Google",
+      date: "2023",
+      credential: "GG-2023-789",
+      image: "https://via.placeholder.com/300x200",
+      link: "https://example.com/certificate3"
+    },
+    {
+      id: 4,
+      name: "Tailwind CSS",
+      school: "Frontend Masters",
+      date: "2024",
+      credential: "FM-2024-321",
+      image: "https://via.placeholder.com/300x200",
+      link: "https://example.com/certificate4"
+    }
+  ];
+
+  return (
+    <section id="certificates" className="py-40 px-6 bg-slate-900/20">
+      <div className="container mx-auto max-w-7xl">
+        
+        {/* Sarlavha */}
+        <div className="text-center mb-24">
+          <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase mb-6">
+            Mening <span className="text-indigo-500">Sertifikatlarim</span>
+          </h2>
+          <p className="text-slate-400 text-xl max-w-2xl mx-auto">
+            O'qish va rivojlanish davomida qo'lga kiritgan sertifikatlarim
+          </p>
+        </div>
+
+        {/* Sertifikatlar grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {certificates.map((cert) => (
+            <div 
+              key={cert.id}
+              className="group relative glass rounded-[40px] p-8 hover:-translate-y-2 transition-all duration-500 border border-white/5 hover:border-indigo-500/30"
+            >
+              {/* Sertifikat ikonkasi */}
+              <div className="w-20 h-20 bg-gradient-to-br from-indigo-500/20 to-purple-600/20 rounded-3xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                <Award size={40} className="text-indigo-400 group-hover:text-indigo-300" />
+              </div>
+
+              {/* Sertifikat nomi */}
+              <h3 className="text-2xl font-black text-white mb-3 group-hover:text-indigo-400 transition-colors">
+                {cert.name}
+              </h3>
+
+              {/* Ta'lim muassasasi */}
+              <div className="flex items-center gap-2 mb-2">
+                <BadgeCheck size={16} className="text-indigo-400" />
+                <span className="text-slate-300 font-medium">{cert.school}</span>
+              </div>
+
+              {/* Yil va credential */}
+              <div className="flex items-center gap-2 mb-4">
+                <Calendar size={14} className="text-slate-500" />
+                <span className="text-slate-400 text-sm">{cert.date}</span>
+              </div>
+
+              {/* Credential ID */}
+              <div className="mb-6">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                  ID: {cert.credential}
+                </span>
+              </div>
+
+              {/* Ko'rish tugmasi */}
+              <a 
+                href={cert.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-indigo-400 font-black text-xs uppercase tracking-widest hover:text-white transition-colors group/link"
+              >
+                SERTIFIKATNI KO'RISH 
+                <ExternalLink size={14} className="group-hover/link:translate-x-1 transition-transform" />
+              </a>
+
+              {/* Hover effekti */}
+              <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-[40px] transition-opacity duration-500 pointer-events-none"></div>
+            </div>
+          ))}
+        </div>
+
+        {/* Statistika */}
+        <div className="mt-24 grid md:grid-cols-3 gap-8">
+          <div className="glass p-8 rounded-[40px] text-center">
+            <p className="text-5xl font-black text-indigo-400 mb-2">10+</p>
+            <p className="text-slate-400 font-bold uppercase tracking-wider text-xs">Sertifikatlar</p>
+          </div>
+          <div className="glass p-8 rounded-[40px] text-center">
+            <p className="text-5xl font-black text-indigo-400 mb-2">5+</p>
+            <p className="text-slate-400 font-bold uppercase tracking-wider text-xs">Online Kurslar</p>
+          </div>
+          <div className="glass p-8 rounded-[40px] text-center">
+            <p className="text-5xl font-black text-indigo-400 mb-2">3</p>
+            <p className="text-slate-400 font-bold uppercase tracking-wider text-xs">Xalqaro Sertifikatlar</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+
+import { Award, BadgeCheck, BookOpen, Calendar } from 'lucide-react';
+
+
 const Footer = () => (
   <footer className="py-20 text-center border-t border-white/5">
     <div className="container mx-auto px-6">
@@ -433,6 +567,7 @@ const App = () => {
         <Hero />
         <About />
         <Skills />
+        <Certificates />
         <Projects />
         <Contact />
       </main>
