@@ -11,7 +11,7 @@ import {
   Code2, 
   Briefcase,
   Send,
-  ChevronRight,
+  ChevronRight, 
   Menu,
   X,
   Terminal,
@@ -41,12 +41,24 @@ const Header = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'glass py-4 shadow-2xl' : 'bg-transparent py-8'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <a href="#home" className="text-2xl font-black tracking-tighter flex items-center gap-3 group">
-          <div className="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center shadow-lg shadow-indigo-500/20 group-hover:rotate-12 transition-transform duration-300">
-            <span className="text-white text-2xl font-black">N</span>
-          </div>
-          <span className="hidden sm:inline bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400 uppercase tracking-tighter">NABINUR</span>
-        </a>
+      <a href="#home" className="text-2xl font-black tracking-tighter flex items-center gap-3 group">
+  {/* MINIMAL N */}
+  <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-2xl flex items-center justify-center shadow-2xl shadow-indigo-500/25 group-hover:shadow-indigo-500/50 group-hover:scale-105 transition-all duration-300 relative overflow-hidden">
+    {/* N harfi - Qalin */}
+   <span className="text-white text-3xl font-black italic
+               transform -skew-x-12 rotate-6
+               group-hover:skew-x-6 group-hover:rotate-12">
+  N
+</span>
+    
+    {/* Yorug'lik effekti */}
+    <div className="absolute top-0 -left-10 w-20 h-full bg-white/20 transform rotate-45 group-hover:translate-x-20 transition-transform duration-700"></div>
+  </div>
+  
+  <span className="hidden sm:inline text-transparent bg-clip-text bg-gradient-to-r from-white to-indigo-300 uppercase tracking-tighter font-black text-2xl">
+    NABINUR
+  </span>
+</a>
 
         <nav className="hidden md:flex gap-10 items-center">
           {navItems.map((item) => (
@@ -271,9 +283,8 @@ const Contact = () => {
     const name = e.target.name.value;
     const message = e.target.message.value;
 
-    // BU YERGA O'ZINGIZNING BOT TOKEN VA CHAT ID NI YOZING
-   const BOT_TOKEN = "8546998499:AAFEXAmRq3sCNtkB0p3IR2tEooEvv1U6z_k";  // @BotFather dan oldingiz
-   const CHAT_ID = "5494316144";  // @nabinur07 ning ID si
+   const BOT_TOKEN = "8546998499:AAFEXAmRq3sCNtkB0p3IR2tEooEvv1U6z_k";
+   const CHAT_ID = "5494316144";  
    
    const text = `📬 **Yangi xabar portfolio saytidan!**\n\n👤 **Ism:** ${name}\n💬 **Xabar:** ${message}\n🕐 ${new Date().toLocaleString('uz-UZ')}`;
 
@@ -392,7 +403,7 @@ const Contact = () => {
                   disabled={isSending}
                   className="w-full bg-indigo-600 hover:bg-indigo-700 py-8 rounded-[32px] font-black text-xs tracking-[0.3em] transition-all text-white flex items-center justify-center gap-3 uppercase shadow-xl shadow-indigo-600/20 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isSending ? 'YUBORILMOQDA...' : '  TELEGRAM'} 
+                  {isSending ? 'YUBORILMOQDA...' : 'TELEGRAM'} 
                   {!isSending && <Send size={20} />}
                 </button>
               </form>
